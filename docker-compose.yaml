@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  nginx:
+    image: arm64v8/nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    restart: always
+    depends_on:
+      - marioapi
+
+  marioapi:
+    build:
+      context: ./marioapi/
+    image: marioapi
+    entrypoint: Rscript -e "options('plumber.port'=8000,plumber.host='0.0.0.0');library(future);plan(multisession);library('marioapi');run_api()"
+    restart: always

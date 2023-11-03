@@ -1,0 +1,23 @@
+metadata:
+  title: mariobox API
+handles:
+  health_get:
+    methods: GET
+    path: /health
+    handler: get_health
+  allo_get:
+    methods: GET
+    path: /allo
+    handler: get_allo
+  juju_get:
+    methods: GET
+    path: /juju
+    handler: get_juju
+  slow_juju_get:
+    methods: GET
+    path: /slow_juju
+    handler: get_slow_juju
+  slow_juju2_get:
+    methods: GET
+    path: /slow_juju2
+    handler: get_slow_juju2
